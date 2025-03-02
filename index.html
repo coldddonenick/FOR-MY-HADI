@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            background: url('https://source.unsplash.com/1600x900/?love,romantic') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            color: darkred;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section {
+            padding: 100px 20px;
+            font-size: 48px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px 50px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        .image-container {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            margin: 20px 0;
+        }
+
+        .image-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box section">Моё Солнце</div>
+        <div class="image-container"><img src="image1.jpeg" alt="Изображение 1"></div>
+
+        <div class="box section">О Ней…</div>
+        <div class="image-container"><img src="image2.jpeg" alt="Изображение 2"></div>
+
+        <div class="box section">Будь Счастлива</div>
+        <div class="image-container"><img src="image3.jpeg" alt="Изображение 3"></div>
+
+        <div class="box section">Я люблю тебя</div>
+        <div class="image-container"><img src="image4.jpeg" alt="Изображение 4"></div>
+    </div>
+
+    <script>
+        function revealImages() {
+            const images = document.querySelectorAll('.image-container');
+            images.forEach(image => {
+                const rect = image.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    image.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealImages);
+        window.addEventListener('load', revealImages);
+    </script>
+</body>
+</html>
